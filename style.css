@@ -1,0 +1,74 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+}
+
+#contenitore {
+    width: 650px;
+    margin: 30px auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #999;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    font-size: 15px;
+}
+
+textarea {
+    height: 70px;
+    resize: vertical;
+}
+
+button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 7px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#ricevuta {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f1f1f1;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #555555;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    width: 50%;
+}

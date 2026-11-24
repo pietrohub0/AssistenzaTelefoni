@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assistenza telefoni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="contenitore">
+
+        <h2>Ri-Generation - Assistenza telefoni</h2>
+
+        <form id="form">
+
+            <label>Nome:</label>
+            <input type="text" id="nome" required>
+
+            <label>Cognome:</label>
+            <input type="text" id="cognome" required>
+
+            <label>Codice Fiscale:</label>
+            <input type="text" id="codiceFiscale" minlength="16" maxlength="16" required>
+
+            <label>Città:</label>
+            <input type="text" id="citta" required>
+
+            <label>Gestore telefonico:</label>
+            <select id="gestore" required>
+                <option value="">Seleziona un gestore</option>
+                <option value="TIM">TIM</option>
+                <option value="Vodafone">Vodafone</option>
+                <option value="WindTre">WindTre</option>
+                <option value="Iliad">Iliad</option>
+                <option value="Fastweb">Fastweb</option>
+                <option value="Altro">Altro</option>
+            </select>
+
+            <label>Numero di telefono dispositivo:</label>
+            <input type="tel" id="telefono" required>
+
+            <label>Marca dispositivo:</label>
+            <input type="text" id="marca" required>
+
+            <label>Modello dispositivo:</label>
+            <input type="text" id="modello" required>
+
+            <label>Breve descrizione del problema:</label>
+            <textarea id="problema" required></textarea>
+
+            <label>Recapito di contatto (se diverso dal numero del dispositivo in riparazione):</label>
+            <input type="tel" id="recapito">
+
+            <button type="button" id="genera">Genera ricevuta</button>
+
+        </form>
+
+
+        <div id="ricevuta">
+
+            <table>
+
+                <tr>
+                    <th colspan="2">
+                        Ri-Generation – Via Pavoncelli 118, Bari
+                        <br>
+                        Ricevuta di consegna
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>Nome</td>
+                    <td id="rNome"></td>
+                </tr>
+
+                <tr>
+                    <td>Cognome</td>
+                    <td id="rCognome"></td>
+                </tr>
+
+                <tr>
+                    <td>Codice Fiscale</td>
+                    <td id="rCodiceFiscale"></td>
+                </tr>
+
+                <tr>
+                    <td>Città</td>
+                    <td id="rCitta"></td>
+                </tr>
+
+                <tr>
+                    <td>Gestore telefonico</td>
+                    <td id="rGestore"></td>
+                </tr>
+
+                <tr>
+                    <td>Numero di telefono dispositivo</td>
+                    <td id="rTelefono"></td>
+                </tr>
+
+                <tr>
+                    <td>Marca dispositivo</td>
+                    <td id="rMarca"></td>
+                </tr>
+
+                <tr>
+                    <td>Modello dispositivo</td>
+                    <td id="rModello"></td>
+                </tr>
+
+                <tr>
+                    <td>Breve descrizione del problema</td>
+                    <td id="rProblema"></td>
+                </tr>
+
+                <tr>
+                    <td>Recapito di contatto (se diverso dal numero del dispositivo in riparazione)</td>
+                    <td id="rRecapito"></td>
+                </tr>
+
+            </table>
+
+            <button type="button" id="torna">Torna al form</button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let form = document.getElementById("form");
+        let ricevuta = document.getElementById("ricevuta");
+
+        document.getElementById("genera").addEventListener("click", function() {
+
+            let nome = document.getElementById("nome").value;
+            let cognome = document.getElementById("cognome").value;
+            let codiceFiscale = document.getElementById("codiceFiscale").value;
+            let citta = document.getElementById("citta").value;
+            let gestore = document.getElementById("gestore").value;
+            let telefono = document.getElementById("telefono").value;
+            let marca = document.getElementById("marca").value;
+            let modello = document.getElementById("modello").value;
+            let problema = document.getElementById("problema").value;
+            let recapito = document.getElementById("recapito").value;
+
+            if (recapito == "") {
+                recapito = telefono;
+            }
+
+            document.getElementById("rNome").textContent = nome;
+            document.getElementById("rCognome").textContent = cognome;
+            document.getElementById("rCodiceFiscale").textContent = codiceFiscale;
+            document.getElementById("rCitta").textContent = citta;
+            document.getElementById("rGestore").textContent = gestore;
+            document.getElementById("rTelefono").textContent = telefono;
+            document.getElementById("rMarca").textContent = marca;
+            document.getElementById("rModello").textContent = modello;
+            document.getElementById("rProblema").textContent = problema;
+            document.getElementById("rRecapito").textContent = recapito;
+
+            form.style.display = "none";
+            ricevuta.style.display = "block";
+
+        });
+
+        document.getElementById("torna").addEventListener("click", function() {
+
+            form.reset();
+
+            ricevuta.style.display = "none";
+            form.style.display = "block";
+
+        });
+
+    </script>
+</body>
+</html>
